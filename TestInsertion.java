@@ -81,7 +81,7 @@ public class TestInsertion{
                     }
                     break;   
         }
-        
+        in.close();
     }
 }
 
