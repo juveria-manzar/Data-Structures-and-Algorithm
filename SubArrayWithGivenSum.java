@@ -58,5 +58,6 @@ public class SubArrayWithGivenSum {
             arraysum.subArraySum(arr, size, sum); 
             testCases--;
         }    
+        in.close();
     } 
 } 
