@@ -38,7 +38,6 @@ public class SubArrayWithGivenSum {
             if (i < n) 
                 curr_sum = curr_sum + arr[i]; 
         } 
-        // System.out.println("No subarray found"); 
         return 0; 
     }
     public static void main(String[] args) 
