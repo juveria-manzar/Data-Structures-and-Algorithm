@@ -20,7 +20,6 @@ public class LargestSubArrayforSum {
                 j++;
             }
         }
-        System.out.println(start);
         System.out.println("Sum is found within indices " + start + " and " + m_l);
         return m_l;
     }
