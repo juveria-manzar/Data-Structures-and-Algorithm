@@ -13,6 +13,9 @@ public class MaxofAllSubArrays {
             }
             else if(j-i+1==k){
                 list.add(max);
+                if(arr[i]==max){
+                    max=arr[i+1];
+                }
                 i++;
                 j++;            
             }
@@ -21,8 +24,8 @@ public class MaxofAllSubArrays {
     }
     
     public static void main(String[] args) {
-        int []arr={1,3,-1,-3,5,3,6,7};
-        int k=3;
+        int []arr={70, 20, 30, 50, 10, 70, 30};
+        int k=2;
         computeMax(arr,k);
     }
 }
