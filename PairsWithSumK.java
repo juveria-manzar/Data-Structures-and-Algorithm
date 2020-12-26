@@ -63,7 +63,7 @@ public class PairsWithSumK {
                     }
                     start=start+countS;
                     System.out.println("start" +start);
-                    while(start<tempE){
+                    while(start<=tempE){
                         if(arr[tempE]==arr[end]){
                             countE++;
                             System.out.println(" 3-2 start count"+countS);
@@ -78,13 +78,22 @@ public class PairsWithSumK {
                     count+=countS*countE;//3
                     System.out.println(count);
                 }
+                else if(arr[start]==arr[end]){
+                    System.out.println("equal case");
+                    System.out.println(start);
+                    System.out.println(end);
+                    int res=nCr(end-start+1, end-start+1);
+                    count+=res;
+                    start++;
+                    end--;
+                }
             }
         }
         return count;
     }
     public static void main(String[] args) {
         int arr[]={1,4,4,5,5,5,6,6,11};
-        int k=11;
+        int k=10;
         int count=computeCountOfPairs(arr,k);
         System.out.println(count);
     }
