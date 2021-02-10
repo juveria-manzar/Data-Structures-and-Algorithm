@@ -11,7 +11,6 @@ public class PowerLinear {
         int x=3;
         int n=4;
         int ans=power(x,n);
-        
-        
+        System.out.println(ans);
     }
 }
