@@ -1,4 +1,5 @@
 
+//Leetcode
 public class RemoveDuplicates {
     static int removeDuplicates(int[] arr,int n){
         int newIndex=0;
