@@ -18,9 +18,12 @@ public class Combination {
     private static int comb(int n, int r){
         int nFact, rFact, nrFact;
         nFact=fact(n);
+        System.out.println(nFact);
         rFact=fact(r);
+        System.out.println(rFact);
         nrFact=fact(n-r);
-        return nFact/rFact*nrFact;
+        System.out.println(nrFact);
+        return nFact/(rFact*nrFact);
     }
     public static void main(String[] args) {
         int n=5;
