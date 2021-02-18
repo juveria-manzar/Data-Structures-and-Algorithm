@@ -7,5 +7,24 @@
  */
 
 public class Combination {
-    
+    private static int fact(int n){
+        if(n==0){
+            return 1;
+        }
+        else{
+            return fact(n-1)*n;
+        }
+    }
+    private static int comb(int n, int r){
+        int nFact, rFact, nrFact;
+        nFact=fact(n);
+        rFact=fact(r);
+        nrFact=fact(n-r);
+        return nFact/rFact*nrFact;
+    }
+    public static void main(String[] args) {
+        int n=5;
+        int r=3;
+        System.out.println(comb(n, r));
+    }
 }
