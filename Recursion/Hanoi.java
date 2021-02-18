@@ -1,3 +1,11 @@
+/**
+ * @author Juveria Manzar
+ * @email juveriamanzar29@gmail.com
+ * @create date 2021-02-19 00:27:32
+ * @modify date 2021-02-19 00:27:32
+ * @desc [description]
+ */
+
 public class Hanoi {
     private static void toh(int n, int A,int B,int C){
         if(n>0){
