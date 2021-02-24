@@ -1,9 +1,8 @@
 public class MaxinArray {
     public static int max(int[] arr,int index){
-        if(index==arr.length){
-            return arr[0];
+        if(index==arr.length-1){
+            return arr[index];
         }
-
         return Math.max(arr[index],max(arr,index+1));
     }
 

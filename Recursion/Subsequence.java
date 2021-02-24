@@ -3,7 +3,7 @@
  * @email juveriamanzar29@gmail.com
  * @create date 2021-02-20 05:45:23
  * @modify date 2021-02-20 05:45:23
- * @desc [description]
+ * @desc n-> 2^n combinations
  */
 import java.util.ArrayList;
 
@@ -15,9 +15,13 @@ public class Subsequence {
             return bres;
         }
 
-        char ch=str.charAt(0);
-        String subS=str.substring(1);
-        ArrayList<String> rres=getSubsequence(subS);
+        //bc->[--,-c,b-,bc]
+        //abc->[---,--c,-b-,-bc,a--,a-c,ab-,abc]
+        char ch=str.charAt(0); //a
+        String subS=str.substring(1); //b
+        
+        ArrayList<String> rres=getSubsequence(subS); //bc->[--,-c,b-,bc]
+        
         ArrayList<String> mres=new ArrayList<>();
         for(String rstr:rres){
             mres.add(""+rstr);
