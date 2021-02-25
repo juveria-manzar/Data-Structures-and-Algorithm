@@ -3,7 +3,7 @@
  * @email juveriamanzar29@gmail.com
  * @create date 2020-12-30 07:51:15
  * @modify date 2020-12-30 07:51:15
- * @desc [description]
+ * @desc [Easy]
  */
 
 public class SpanOfArray {
