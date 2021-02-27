@@ -7,7 +7,7 @@
  */
 public class BinarySearch {
 
-    public static void search(int[] arr,int l, int r,int k) {
+    public static void search(int[] arr,int k,int l, int r) {
         while(l<=r){
             int mid=(l+r)/2;
             if(k>arr[mid]){
@@ -22,10 +22,28 @@ public class BinarySearch {
             }
         }
     }
+
+    public static int recursiveSearch(int[] arr,int k,int l,int r ){
+        if(l<=r){
+            int mid=(l+r)/2;
+            if(k>arr[mid]){
+               return recursiveSearch(arr, k, mid+1, r);
+            }
+            else if(k<arr[mid]){
+                return recursiveSearch(arr, k, l, mid-1);
+            }
+            else{
+                return mid;
+            }
+        }
+
+        return -1;
+    }
     public static void main(String[] args) {
         int arr[] = { 2, 3, 4, 10, 40 }; 
         int k=10;
-        search(arr,0,arr.length-1,k);
+        // search(arr,k,0,arr.length-1);
+        System.out.println(recursiveSearch(arr,k,0,arr.length-1));   
     }
 
 }
