@@ -1,3 +1,11 @@
+/**
+ * @author Juveria Manzar
+ * @email juveriamanzar29@gmail.com
+ * @create date 2021-02-19 00:27:32
+ * @modify date 2021-02-19 00:27:32
+ * @desc 
+ */
+
 public class AllIndices {
 
     public static int[] allIndices(int[] arr,int ele,int index,int fsf) {

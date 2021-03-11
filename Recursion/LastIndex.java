@@ -1,3 +1,4 @@
+//Last Index
 public class LastIndex {
     private static int firstI(int[] arr,int index,int ele) {
         if(index==0){
