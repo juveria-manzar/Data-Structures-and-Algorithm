@@ -1,4 +1,33 @@
 public class WaterTrappingProblem {
+
+    //Brute-force approach
+
+    static int maxWater1(int[] arr,int n){
+        int result=0;
+        for(int i=1;i<n-1;i++){
+            int left_max=find_left_max(arr,n,i);
+            int right_max=find_right_max(arr,n,i);
+            result+=Math.min(left_max,right_max)-arr[i];
+        }
+        return result;
+    }
+
+    static int find_left_max(int[] arr,int n,int i){
+        int greatest=0;
+        for(int j=0;j<=i;j++){
+            greatest=Math.max(greatest,arr[j]);
+        }
+        return greatest;
+    }
+
+    static int find_right_max(int[] arr,int n,int i){
+        int greatest=0;
+        for(int j=n-1;j>=i;j--){
+            greatest=Math.max(greatest,arr[j]);
+        }
+        return greatest;
+    }
+
     static int maxWater(int[] arr, int n){
     
         // indices to traverse the array
@@ -48,11 +77,11 @@ public class WaterTrappingProblem {
             return result;
         }
     
-        // Driver code
     public static void main(String []args) 
     {
         int[] arr = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         int n = arr.length;
-        System.out.print(maxWater(arr, n));
+        System.out.println(maxWater(arr, n));
+        System.out.println(maxWater1(arr, n));
     }
 }
