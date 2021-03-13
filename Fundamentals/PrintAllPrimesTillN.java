@@ -11,6 +11,7 @@
 import java.util.*;
 public class PrintAllPrimesTillN{
 
+    //method1
     static void printPrimes1(int low, int high){
         for(int i=low;i<=high;i++){
             int count=0;
@@ -26,6 +27,7 @@ public class PrintAllPrimesTillN{
         }
     }
 
+    //method2
     static void printPrimes2(int high){
         boolean[] prime=new boolean[high+1];
 
