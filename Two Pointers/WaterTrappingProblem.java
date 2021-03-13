@@ -49,7 +49,6 @@ public class WaterTrappingProblem {
         // and right max for each element
             if(r_max <= l_max)
             {
-        
                 // Add the difference between 
                 // current value and right max at index r
                 result += Math.max(0, r_max-arr[right]);
