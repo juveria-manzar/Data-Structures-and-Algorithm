@@ -7,6 +7,7 @@
  *          brute force
  *          seive of erthoses
  *  Level: Medium
+ * Time Complexity: n*log(log(n))
  */
 import java.util.*;
 public class PrintAllPrimesTillN{
