@@ -1,7 +1,7 @@
 public class WaterTrappingProblem {
 
     //Brute-force approach
-
+    //Better approach- prefix and sufix
     static int maxWater1(int[] arr,int n){
         int result=0;
         for(int i=1;i<n-1;i++){
@@ -30,49 +30,34 @@ public class WaterTrappingProblem {
 
     static int maxWater(int[] arr, int n){
     
-        // indices to traverse the array
         int left = 0;
         int right = n - 1;
-    
-        // To store Left max and right max 
-        // for two pointers left and right
+
         int l_max = 0;
         int r_max = 0;
-    
-        // To store the total amount 
-        // of rain water trapped
+
         int result = 0;
         while (left <= right)
         {
-    
-        // We need check for minimum of left 
-        // and right max for each element
-            if(r_max <= l_max)
-            {
-                // Add the difference between 
-                // current value and right max at index r
-                result += Math.max(0, r_max-arr[right]);
-        
-                // Update right max
-                r_max = Math.max(r_max, arr[right]);
-        
-                // Update right pointer
-                right -= 1;
+            if(arr[left]<=arr[right]){
+                if(arr[left]>=l_max){
+                    l_max=arr[left];
+                }
+                else{
+                    result+=l_max-arr[left];
+                }
+                left++;
             }
-            else
-            { 
-        
-                // Add the difference between 
-                // current value and left max at index l
-                result += Math.max(0, l_max-arr[left]);
-        
-                // Update left max
-                l_max = Math.max(l_max, arr[left]);
-        
-                // Update left pointer
-                left += 1;
+            else{
+                if(arr[right]>=r_max){
+                    r_max=arr[right];
+                }
+                else{
+                    result+=r_max-arr[right];
+                }
+                right--;
             }
-            }
+        }
             return result;
         }
     
@@ -81,6 +66,6 @@ public class WaterTrappingProblem {
         int[] arr = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         int n = arr.length;
         System.out.println(maxWater(arr, n));
-        System.out.println(maxWater1(arr, n));
+        // System.out.println(maxWater1(arr, n));
     }
 }
