@@ -1,3 +1,10 @@
+/**
+ * @author Juveria Manzar
+ * @email juveriamanzar29@gmail.com
+ * @create date 2021-03-15 21:07:10
+ * @modify date 2021-03-15 21:07:10
+ * @desc Array Reverse Display
+ */
 public class ArrayReverse {
     public static void displayArray(int[] arr,int index){
         if(index==arr.length){
