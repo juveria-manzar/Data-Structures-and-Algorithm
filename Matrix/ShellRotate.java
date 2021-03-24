@@ -25,18 +25,85 @@ public class ShellRotate {
         fillShellFromOneD(arr,s,oneD);
     }
 
-    public static void fillOneDFromShell(int[][] arr, int s){
+    public static int[] fillOneDFromShell(int[][] arr, int s){
         int minr=s-1;
         int minc=s-1;
 
         int maxr=arr.length-s;
         int maxc=arr[0].length-s;
 
-        int sz=2*(maxr-minr+maxc-minc); 
+        int sz= 2*(maxr-minr+maxc-minc); 
 
+        int[] oneD=new int[sz];
 
+        //lw
+        int index=0;
+        for(int i=minr,j=minc;i<=maxr;i++){
+            oneD[index]=arr[i][j];
+            index++;
+        }
+
+        //bw
+        for(int i=maxr,j=minc+1;j<=maxc;j++){
+            oneD[index]=arr[i][j];
+            index++;
+        }
+
+        //rw
+        for(int i=maxr-1,j=maxc;i>=minr;i--){
+            oneD[index]=arr[i][j];
+            index++;
+        }
+
+        //tw
+        for(int i=minr,j=maxc-1;j>=minc+1;j--){
+            oneD[index]=arr[i][j];
+            index++;
+        }
+
+        return oneD;
     }
 
+    public static void fillShellFromOneD(int[][] arr,int s,int[] oneD){
+        int minr=s-1;
+        int minc=s-1;
+
+        int maxr=arr.length-s;
+        int maxc=arr[0].length-s;
+
+        //lw
+        int index=0;
+        for(int i=minr,j=minc;i<=maxr;i++){
+            arr[i][j]=oneD[index];
+            index++;
+        }
+
+        //bw
+        for(int i=maxr,j=minc+1;j<=maxc;j++){
+            arr[i][j]=oneD[index];
+            index++;
+        }
+
+        //rw
+        for(int i=maxr-1,j=maxc;i>=minr;i--){
+            arr[i][j]=oneD[index];
+            index++;
+        }
+
+        //tw
+        for(int i=minr,j=maxc-1;j>=minc+1;j--){
+            arr[i][j]=oneD[index];
+            index++;
+        }
+
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+
+    }
     public static void rotate(int[] oneD,int r){
         r=r%oneD.length;
         if(r<0){
