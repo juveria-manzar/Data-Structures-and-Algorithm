@@ -161,6 +161,19 @@ public class MyLinkedList {
 		}
 	}
 
+	public int findPosition(String data){
+		Node temp=this.head;
+		int count=0;
+		while(temp!=null){
+			count++;
+			if(temp.getData().equals(data)){
+				return count;
+			}
+			temp=temp.getNext();
+		}
+		return 0;
+	}
+
 	public static void main(String args[]) {
 		MyLinkedList list = new MyLinkedList();
 		list.addAtEnd("Milan");
@@ -172,5 +185,6 @@ public class MyLinkedList {
 		System.out.println("--------------------------");
 		list.delete("Venice");
 		list.display();
+		System.out.println(list.findPosition("Munich"));
 	}
 }
