@@ -41,6 +41,9 @@ public class DiffOfArrays{
                 index=i;
                 break;
             }
+            else{
+                index=diff.length-1;
+            }
         }
 
         System.out.println();
