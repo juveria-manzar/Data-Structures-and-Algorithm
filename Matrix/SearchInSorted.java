@@ -32,7 +32,7 @@ public class SearchInSorted {
                 c--;
             }
         }
-        System.out.print(r+"\n"+c);
+        System.out.print("Not found");
     }
     public static void main(String[] args) {
         int[][] mat={{11,12,13,14},{21,22,23,23},{31,32,33,34},{41,42,43,44}};
