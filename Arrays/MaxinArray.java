@@ -10,7 +10,9 @@ public class MaxinArray {
         if(index==arr.length-1){
             return arr[index];
         }
-        return Math.max(arr[index],max(arr,index+1));
+        int subMax=max(arr,index+1);
+        int totalMax=Math.max(arr[index],subMax);
+        return totalMax;
     }
 
     public static void main(String[] args) {
