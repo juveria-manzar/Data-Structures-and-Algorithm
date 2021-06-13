@@ -11,5 +11,5 @@ Contains all questions solved using Data Structuresand Algorithms
 | --- | --- | --- |
 | Easy | [Redundant Braces](https://www.interviewbit.com/problems/redundant-braces/) | Amazon, Adobe |
 | Easy | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | Amazon, Google |
-
+| Medium | [Next Greater Element to the Right](https://www.pepcoding.com/resources/online-java-foundation/stacks-and-queues/next-greater-element-official/ojquestion) | Important Concept|
 
