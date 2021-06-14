@@ -13,7 +13,7 @@
  * 
  * Assumption - number represented by a2 is greater.
  */
-import java.io.*;
+
 import java.util.*;
 
 public class DiffOfArrays{

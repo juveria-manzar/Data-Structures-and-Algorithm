@@ -24,8 +24,8 @@ public class LastIndex {
             return -1;
     }
     public static void main(String[] args) {
-        int[] arr={7,6,7,8,;
-        int ele=7;7}
+        int[] arr={7,6,7,8};
+        int ele=7;
         System.out.println(lastIndex(arr,0,ele));
     }
 }
