@@ -23,12 +23,13 @@ public class LargestAraeHistogram {
     }
 
     public static int largestAreaHistogram(int[] ht) {
+        int n = ht.length;
         int[] nsl = nextSmallerLeft(ht);
         int[] nsr = nextSmallerRight(ht);
 
         int maxArea = 0;
 
-        for (int i = 0; i < ht.length; i++) {
+        for (int i = 0; i < n; i++) {
             int h = ht[i];
             int w = nsr[i] - nsl[i] - 1;
             int area = h * w;
@@ -40,22 +41,21 @@ public class LargestAraeHistogram {
     }
 
     public static int[] nextSmallerLeft(int[] arr) {
-        int[] nsl = new int[arr.length];
+        int n = arr.length;
+        int[] nsl = new int[n];
         Stack<Integer> st = new Stack<>();
         nsl[0] = -1;
         st.push(0);
 
-        for (int i = 1; i < arr.length; i++) {
+        for (int i = 1; i < n; i++) {
             while (st.size() > 0 && arr[st.peek()] >= arr[i]) {
                 st.pop();
             }
-
             if (st.size() == 0) {
                 nsl[i] = -1;
             } else {
                 nsl[i] = st.peek();
             }
-
             st.push(i);
         }
 
@@ -63,25 +63,23 @@ public class LargestAraeHistogram {
     }
 
     public static int[] nextSmallerRight(int[] arr) {
-        int[] nsr = new int[arr.length];
+        int n = arr.length;
+        int[] nsr = new int[n];
         Stack<Integer> st = new Stack<>();
-        nsr[arr.length - 1] = arr.length;
-        st.push(arr.length - 1);
+        nsr[n - 1] = n;
+        st.push(n - 1);
 
-        for (int i = arr.length - 2; i >= 0; i--) {
+        for (int i = n - 2; i >= 0; i--) {
             while (st.size() > 0 && arr[st.peek()] >= arr[i]) {
                 st.pop();
             }
-
             if (st.size() == 0) {
-                nsr[i] = arr.length;
+                nsr[i] = n;
             } else {
                 nsr[i] = st.peek();
             }
-
             st.push(i);
         }
-
         return nsr;
     }
 }
