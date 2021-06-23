@@ -1,4 +1,12 @@
-public class Solution {
+/**
+ * @author [Juveria]
+ * @email [juveriamanzar29@gmail.com]
+ * @create date 2021-06-23 08:01:01
+ * @modify date 2021-06-23 08:01:01
+ * @desc [description]
+ */
+import java.util.*;
+public class RedundantBraces {
     public int braces(String A) {
         Stack<Character> st = new Stack<>();
         for (char c : A.toCharArray()) {
@@ -10,6 +18,7 @@ public class Solution {
                     popCount++;
                 }
                 st.pop();//popping the corresponding opening brace
+                
                 //if only single element poped that is single element in between the braces, the v=braces are redundant
                 //or if no element has been popped between the braces
                 if(popCount==1||popCount==0){
