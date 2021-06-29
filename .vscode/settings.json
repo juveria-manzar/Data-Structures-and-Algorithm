@@ -1,3 +1,6 @@
 {
-    "diffEditor.codeLens": true
+    "diffEditor.codeLens": true,
+    "author-generator.author": "[Juveria]",
+    "author-generator.updateOnSave": true,
+    "author-generator.email": "[juveriamanzar29@gmail.com]"
 }

@@ -1,3 +1,4 @@
+
 /**
  * @author [Juveria]
  * @email [juveriamanzar29@gmail.com]
@@ -9,15 +10,15 @@
 import java.io.*;
 import java.util.*;
 
-public class StockSPan {
+public class StockSpan {
     public static void display(int[] a) {
         StringBuilder sb = new StringBuilder();
 
-        for (int val: a) {
+        for (int val : a) {
             sb.append(val + "");
-            }
-            System.out.println(sb);
         }
+        System.out.println(sb);
+    }
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -36,7 +37,7 @@ public class StockSPan {
         int n = arr.length;
         int[] span = new int[n];
 
-        Stack < Integer > st = new Stack < > ();
+        Stack<Integer> st = new Stack<>();
         span[0] = 1;
         st.push(0);
 
