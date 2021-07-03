@@ -10,7 +10,7 @@ public class LinkedListReverse {
         Node tail;
         int size;
 
-        void addLast(int val) {
+        public void addLast(int val) {
             Node newNode = new Node();
             newNode.data = val;
             newNode.next = null;
@@ -24,7 +24,7 @@ public class LinkedListReverse {
             size++;
         }
 
-        void addFirst(int val) {
+        public void addFirst(int val) {
             Node newNode = new Node();
             newNode.data = val;
 
@@ -37,7 +37,7 @@ public class LinkedListReverse {
             size++;
         }
 
-        Node getNodeAt(int idx) {
+        public Node getNodeAt(int idx) {
             Node temp = head;
             for (int i = 0; i < idx; i++) {
                 temp = temp.next;
@@ -45,7 +45,7 @@ public class LinkedListReverse {
             return temp;
         }
 
-        void display() {
+        public void display() {
             Node temp = this.head;
             while (temp != null) {
                 System.out.print(temp.data + " ");
@@ -55,19 +55,19 @@ public class LinkedListReverse {
         }
 
         // Tc- O(n^2)
-        void reverseDataIterative() {
-            int left=0;
-            int right=size-1;
+        public void reverseDataIterative() {
+            int left = 0;
+            int right = size - 1;
 
-            Node leftNode=head;
-            while(left<right){
-                Node rightNode=getNodeAt(right);
+            Node leftNode = head;
+            while (left < right) {
+                Node rightNode = getNodeAt(right);
 
-                int temp=leftNode.data;
-                leftNode.data=rightNode.data;
-                rightNode.data=temp;
+                int temp = leftNode.data;
+                leftNode.data = rightNode.data;
+                rightNode.data = temp;
 
-                leftNode=leftNode.next;
+                leftNode = leftNode.next;
 
                 left++;
                 right--;
@@ -75,28 +75,51 @@ public class LinkedListReverse {
 
         }
 
-        //Best approach
-        void reversePointerIterative() {
-            Node prev=null;
-            Node curr=head;
+        // Best approach ReversePointer Iterative
+        public void reversePointerIterative() {
+            Node prev = null;
+            Node curr = head;
 
-            while(curr!=null){
-                Node nextNode=curr.next;
+            while (curr != null) {
+                Node nextNode = curr.next;
 
-                curr.next=prev;
+                curr.next = prev;
 
-                prev=curr;
-                curr=nextNode;
+                prev = curr;
+                curr = nextNode;
             }
 
-            Node temp=head;
-            head=tail;
-            tail=temp;
+            Node temp = head;
+            head = tail;
+            tail = temp;
         }
+
+        public void reverseDataRecursive() {
+            reverseDataRecursiveHelper(head, 1);
+        }
+
+        private Node reverseDataRecursiveHelper(Node rightNode, int level) {
+            if (rightNode == null) {
+                return head;
+            }
+
+            Node leftNode = reverseDataRecursiveHelper(rightNode.next, level + 1);
+
+            if (level > size / 2) {
+                int temp = leftNode.data;
+                leftNode.data = rightNode.data;
+                rightNode.data = temp;
+            } else {
+
+            }
+
+            return leftNode.next;
+        }
+
     }
 
     public static void main(String[] args) {
-        LinkedList lr=new LinkedList();
+        LinkedList lr = new LinkedList();
 
         lr.addLast(10);
         lr.addLast(20);
@@ -104,8 +127,9 @@ public class LinkedListReverse {
         lr.addLast(40);
         lr.addLast(50);
         lr.display();
-        lr.reverseDataIterative();
+        // lr.reverseDataIterative();
         // lr.reversePointerIterative();
+        lr.reverseDataRecursive();
         lr.display();
     }
 }
