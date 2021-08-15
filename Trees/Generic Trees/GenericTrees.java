@@ -41,13 +41,12 @@ public class GenericTrees {
 
     public static void display(Node node) {
         System.out.print(node.data+"->");
-        for(int i=0;i<node.children.size();i++){
-            Node child=node.children.get(i);
+
+        for(Node child:node.children){
             System.out.print(child.data+" ");
         }
-
-        for(int i=0;i<node.children.size();i++){
-            Node child=node.children.get(i);
+        for(Node child:node.children){
+            System.out.print(child.data+" ");
             display(child);
         }
     }

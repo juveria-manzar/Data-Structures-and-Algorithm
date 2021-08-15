@@ -62,13 +62,11 @@ public class SizeAndHeight {
     public static int size(Node node) {
         int ts = 0; // total size
 
-        for (int i = 0; i < node.children.size(); i++) {
-            Node child = node.children.get(i);
+        for (Node child : node.children) {
             int cfs = size(child); // child family size
 
             ts += cfs;
         }
-
         return ts + 1;
     }
 
@@ -76,14 +74,10 @@ public class SizeAndHeight {
     public static int max(Node node) {
         int omax = Integer.MIN_VALUE;
 
-        for (int i = 0; i < node.children.size(); i++) {
-            Node child = node.children.get(i);
-
+        for (Node child : node.children) {
             int cfm = max(child); // child family max
 
-            if (cfm > omax) {
-                omax = cfm;
-            }
+            omax = Math.max(cfm, omax);
         }
 
         return Math.max(node.data, omax);
@@ -94,14 +88,10 @@ public class SizeAndHeight {
     public static int height(Node node) {
         int mcht = -1; // max child height
 
-        for (int i = 0; i < node.children.size(); i++) {
-            Node child = node.children.get(i);
-
+        for (Node child : node.children) {
             int htc = height(child); // height of child
 
-            if (htc > mcht) {
-                mcht = htc;
-            }
+            mcht = Math.max(mcht, htc);
         }
 
         return mcht + 1;

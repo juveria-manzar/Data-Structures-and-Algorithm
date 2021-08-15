@@ -12,23 +12,57 @@ public class MinStackII {
         }
 
         int size() {
-            
+            return allData.size();
         }
 
         int top() {
-
+            if(allData.size()==0){
+                return -1;
+            }
+            if(allData.peek()<min){
+                return min;
+            }
+            return allData.peek();
         }
 
         void push(int val) {
+            if(allData.size()==0){
+                allData.push(val);
+                min=val;
+            }else{
+                if(val<=min){
+                    allData.push(val+val-min);
+                    min=val;
+                }else{
+                    allData.push(val);
+                }
 
+            }
         }
 
         int pop() {
-
+            if(allData.size()==0){
+                return -1;
+            }
+            else{
+                if(allData.peek()<min){
+                    int realVal=min;
+                    int oldValue=min+min-allData.pop();
+                    min=oldValue;
+                    return realVal;
+                }else{
+                    return val;
+                }
+            }
         }
 
         int min() {
-
+            if(allData.size()==0){
+                return -1;
+            }
+            else{
+                return min;
+            }
         }
 
         public static void main(String[] args) {

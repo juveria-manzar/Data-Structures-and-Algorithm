@@ -35,28 +35,28 @@ public class Construct {
         Node root = new Node(arr[0]);
         st.push(new Pair(root, 0));
 
-        int index=1;
+        int index = 1;
 
         while (st.size() > 0) {
-            Pair top=st.peek();
+            Pair top = st.peek();
 
-            if(top.state==0){
-                if(arr[index]!=-1){
+            if (top.state == 0) {
+                if (arr[index] != -1) {
                     Node node = new Node(arr[index]);
-                    top.node.left=node;
+                    top.node.left = node;
                     st.push(new Pair(node, 0));
                 }
                 top.state++;
                 index++;
-            }else if(top.state==1){
-                if(arr[index]!=-1){
+            } else if (top.state == 1) {
+                if (arr[index] != -1) {
                     Node node = new Node(arr[index]);
-                    top.node.right=node;
+                    top.node.right = node;
                     st.push(new Pair(node, 0));
                 }
                 top.state++;
                 index++;
-            }else{
+            } else {
                 st.pop();
             }
         }
@@ -68,11 +68,11 @@ public class Construct {
             return;
         }
 
-        String str=" <-"+node.data+" ->";
-        String leftData=(node.left!=null)?(node.left.data+""):(".");
-        String rightData=(node.right!=null)?(node.right.data+""):(".");
+        String str = " <-" + node.data + " ->";
+        String leftData = (node.left != null) ? (node.left.data + "") : (".");
+        String rightData = (node.right != null) ? (node.right.data + "") : (".");
 
-        System.out.println(leftData+str+rightData);
+        System.out.println(leftData + str + rightData);
         display(node.left);
         display(node.right);
     }

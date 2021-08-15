@@ -14,13 +14,15 @@ public class PowerLinear {
         if(n==0){
             return 1;
         }
-        else{
-            return power(x,n-1);
+        else if(n%2!=0){
+            return power(x,n-1)*x;
+        }else{
+            return power(x*x,n/2);
         }
     }
     public static void main(String[] args) {
         int x=2;
-        int n=5;
+        int n=4;
         System.out.println(power(x,n));
     }
 }

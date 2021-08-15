@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class UndirectedGraph {
+public class BreadthFirstTraversal {
 
     public static class Edge {
         int src;
@@ -18,6 +18,52 @@ public class UndirectedGraph {
 
     }
 
+    public static class Pair{
+        int vertex;
+        String psf;
+
+        Pair(){}
+
+        Pair(int vertex, String psf){
+            this.vertex=vertex;
+            this.psf=psf;
+        }
+    }
+
+    public static void bfs(int src,ArrayList<Edge>[]  graph){
+        ArrayDeque<Pair> q=new ArrayDeque<>();
+
+        boolean[] visited=new boolean[graph.length];
+
+        q.add(new Pair(src,src+""));
+
+        while(q.size()>0){
+            //remove
+            Pair rem=q.remove();
+
+            //mark*
+            if(visited[rem.vertex]==true){
+                continue;
+            }
+            visited[rem.vertex]=true;
+
+            //work
+            System.out.println(rem.vertex+"@"+rem.psf);
+
+            //add unvisted neihbours
+            for(Edge ne:graph[rem.vertex]){
+                int nbr=ne.nbr;
+                if(visited[nbr]==false){
+                    q.add(new Pair(nbr,rem.psf+nbr));
+                }
+            }
+        }
+    }
+
+
+    public static void bfsLineWise(int src,ArrayList<Edge>[]  graph){
+        // boolean[] vis=new boolean[graph.length];
+    }
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
 
@@ -40,7 +86,11 @@ public class UndirectedGraph {
             edges--;
         }
 
-        display(graph);
+        int src=scn.nextInt();
+
+        bfs(src,graph);
+
+        bfsLineWise(src,graph);
     }
 
     public static void addEdge(ArrayList<Edge>[]graph,int u,int v,int wt){
@@ -51,21 +101,6 @@ public class UndirectedGraph {
         graph[u].add(e1);
         graph[v].add(e2);
 
-    }
-
-    public static void display(ArrayList<Edge>[] graph){
-        for(int i=0;i<graph.length;i++){
-            System.out.print(i+" ->");
-
-            for(Edge ne:graph[i]){
-                int src=i;
-                int nbr=ne.nbr;
-                int weight=ne.wt;
-
-                System.out.print(src+" - "+nbr+" @ "+weight);
-            }
-            System.out.println();
-        }
     }
 }
 

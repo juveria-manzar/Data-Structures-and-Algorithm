@@ -8,6 +8,10 @@
 
 import java.util.*;
 public class MergeOverlapping {
+
+    public static class Interval{
+        
+    } 
     
     public static void mergeOverlappingIntervals(int[][] arr){
         

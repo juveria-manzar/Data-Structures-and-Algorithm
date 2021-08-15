@@ -96,10 +96,10 @@ public class Size_Sum_Max_height {
       return Integer.MIN_VALUE;
     }
 
-    int lcMax=max(node.left);
-    int rcMax=max(node.right);
+    int lcMax = max(node.left);
+    int rcMax = max(node.right);
 
-    return Math.max(Math.max(lcMax,rcMax),node.data);
+    return Math.max(Math.max(lcMax, rcMax), node.data);
   }
 
   public static int height(Node node) {
@@ -130,7 +130,6 @@ public class Size_Sum_Max_height {
     traversal(node.right);// right call
     post += (node.data + " ");
 
-    
   }
 
   public static void main(String[] args) throws Exception {
@@ -151,9 +150,9 @@ public class Size_Sum_Max_height {
     pre = "";
     post = "";
     traversal(root);
-    System.out.println("Pre "+pre);
-    System.out.println("Post "+post);
-    System.out.println("Inorder "+in);
+    System.out.println("Pre " + pre);
+    System.out.println("Post " + post);
+    System.out.println("Inorder " + in);
   }
 
 }

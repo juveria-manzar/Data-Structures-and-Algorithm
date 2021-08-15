@@ -54,8 +54,8 @@ public class Levelorder {
             System.out.print(rem.data + " ");
 
             // add children
-            for (int i = 0; i < rem.children.size(); i++) {
-                Node child = rem.children.get(i);
+
+            for(Node child:rem.children){
                 q.add(child);
             }
         }
@@ -79,8 +79,7 @@ public class Levelorder {
             System.out.print(rem.data + " ");
 
             // add children
-            for (int i = 0; i < rem.children.size(); i++) {
-                Node child = rem.children.get(i);
+            for(Node child:rem.children){
                 cq.add(child);
             }
 
@@ -90,7 +89,6 @@ public class Levelorder {
                 System.out.println();
                 mq = cq;
                 cq = new ArrayDeque<>();
-
             }
         }
     }
