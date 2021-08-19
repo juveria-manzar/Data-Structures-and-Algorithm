@@ -13,6 +13,9 @@
  * placed on the n * n chess-board. 
  * 
  * Combination 1 intuition
+ * 
+ * combination mai box choose krta hai that means 'N', kyuki N>r toh vo choose krskta hai kis queen(r) ko place krna hai
+ * isliye yes no ki call lgit hai
  */
 public class QueensCombination1 {
     public static void placeQueen(int qpsf,int r,int c,String asf,int N){

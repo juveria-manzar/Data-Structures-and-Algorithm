@@ -9,9 +9,9 @@
  * n * n chess-board. 
  * 
  * Intuitive-> permutation1 approach
+ * 
  */
 public class QueensPermutation1 {
-
     public static void placeQueen(int currQueen, int N, int[][] chess){
         if(currQueen==N){
             for(int i=0;i<N;i++){
@@ -27,7 +27,6 @@ public class QueensPermutation1 {
             System.out.println();
             return; 
         }
-
         for(int i=0;i<N;i++){
             for(int j=0;j<N;j++){
                if(chess[i][j]==0){

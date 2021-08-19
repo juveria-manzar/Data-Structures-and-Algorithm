@@ -4,6 +4,9 @@
  * @create date 2021-08-16 03:49:51
  * @modify date 2021-08-16 03:49:51
  * @desc 
+ * 1. You are given a number of boxes (nboxes) and number of non-identical items (ritems).
+ * 2. You are required to place the items in those boxes and print all such configurations possible.
+ * Items are numbered from 1 to ritems.
  * level->item
  * option->box
  */
