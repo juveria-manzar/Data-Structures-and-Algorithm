@@ -18,30 +18,33 @@
  * isliye yes no ki call lgit hai
  */
 public class QueensCombination1 {
-    public static void placeQueen(int qpsf,int r,int c,String asf,int N){
-        //base condition
-        if(r==N){
-            if(qpsf==N){
-                System.out.println(asf);
-                System.out.println();
+
+    public static void combination(int row,int col,int selectedSoFar, String ansSof, int N) {
+
+        if(row==N){
+            if(selectedSoFar==N){
+                System.out.println(ansSof);
             }
             return;
         }
-        //yes call
-        if(c<N-1){
-            placeQueen(qpsf+1, r, c+1, asf+"q ", N);
-        }else{
-            placeQueen(qpsf+1, r+1, 0, asf+"q\n", N);
+        
+        if(col<N-1){
+            combination(row, col+1, selectedSoFar+1, ansSof+"q ", N);
         }
-        //no call
-        if(c<N-1){
-            placeQueen(qpsf, r, c+1, asf+"- ", N);
-        }else{
-            placeQueen(qpsf, r+1, 0, asf+"-\n", N);
+        else{
+            combination(row+1, 0, selectedSoFar+1, ansSof+"q\n", N);
+        }
+
+        if(col<N-1){
+            combination(row, col+1, selectedSoFar, ansSof+"- ", N);
+        }
+        else{
+            combination(row+1, 0, selectedSoFar, ansSof+"-\n", N);
         }
     }
+
     public static void main(String[] args) {
         int N=2;
-        placeQueen(0,0,0,"",N);
+        combination(0,0,0,"",N);
     }
 }

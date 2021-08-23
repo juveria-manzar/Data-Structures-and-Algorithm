@@ -10,11 +10,11 @@
  * level->item
  * option->box
  */
-public class Perumtation1 {
+public class Permutation1 {
 
-    public static void perumte(int totalItem,int currItem, int[] box){
-        //base condition
-        if(currItem>totalItem){
+    public static void permute(int totalItems,int currentItem, int[] box){
+
+        if(currentItem>totalItems){
             for(int i=0;i<box.length;i++){
                 System.out.print(box[i]);
             }
@@ -22,19 +22,19 @@ public class Perumtation1 {
             return;
         }
 
-        //every item has choice to be placed in which box
         for(int i=0;i<box.length;i++){
             if(box[i]==0){
-                box[i]=currItem;
-                perumte(totalItem, currItem+1, box);
+                box[i]=currentItem;
+                permute(totalItems, currentItem+1, box);
                 box[i]=0;
             }
         }
     }
     public static void main(String[] args) {
-        int N=4;
+        int N=5;
         int k=3;
         int[] box=new int[N];
-        perumte(k,0,box);
+
+        permute(k,1,box);
     }
 }

@@ -9,31 +9,33 @@
  * items identical;
  */
 public class Combination2 {
-    public static void combination(int lb, int ci,int ti,int[] boxes){
 
-        if(ci>ti){
+    public static void combinations(int totalBoxes, int totalItems, int[] boxes, int currentItem, int lastBox){
+
+        if(currentItem>totalItems){
             for(int i=0;i<boxes.length;i++){
-                if(b[i]==1){
+                if(boxes[i]!=0){
                     System.out.print("i");
                 }else{
                     System.out.print("-");
                 }
-
-                System.out.println();
             }
+            System.out.println();
+            return;
         }
-        
-        //every item has a choice to be placed in which box
-        for(int b=lb+1;b<boxes.length;b++){
-            boxes[b]=1;
-            combination(b,ci+1,ti,boxes);
-            boxes[b]=0;
+        for(int box=lastBox+1;box<boxes.length;box++){
+            if(boxes[box]==0){
+                boxes[box]=currentItem;
+                combinations(totalBoxes,totalItems,boxes,currentItem+1,box);
+                boxes[box]=0;
+            }
         }
     }
     public static void main(String[] args) {
         int n=4;
         int k=3;
         int[] boxes=new int[n];
-        combination(-1,1,k,boxes);
+
+        combinations(n,k,boxes,1,-1);
     }
 }

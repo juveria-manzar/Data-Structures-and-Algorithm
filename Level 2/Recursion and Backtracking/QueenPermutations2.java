@@ -10,40 +10,33 @@
  * intuitive permutation-2
  */
 public class QueenPermutations2 {
-    public static void permuteQueens(int qpsf, int row, int col, boolean[] queens, int N, String asf) {
+    
+    public static void permuteQueens(int row,int col, int selectedSoFar,boolean[] queens,int N, String ansSoFar){
 
         if(row==N){
-            if(qpsf==N){
-                System.out.println(asf);
-                System.out.println();
+            if(selectedSoFar==N){
+                System.out.println(ansSoFar);
             }
             return;
         }
-        //for N=2 => box has 3 choices q1,q2 or nothing
-
-        //yes choice
-        for(int q=0;q<queens.length;q++){
-            if(queens[q]==false){
-                queens[q]=true;
+        //yes 
+        for(int i=0;i<queens.length;i++){
+            if(queens[i]==false){
+                queens[i]=true;
                 if(col<N-1){
-                    permuteQueens(qpsf+1, row, col+1, queens, N, asf+"q"+(q+1)+"\t");
+                    permuteQueens(row, col+1, selectedSoFar+1, queens, N, ansSoFar+"q"+(i+1)+"\t");
+                }else{
+                    permuteQueens(row+1, 0, selectedSoFar+1, queens, N, ansSoFar+"q"+(i+1)+"\n");
                 }
-                else{
-                    permuteQueens(qpsf+1, row+1, 0, queens, N, asf+"q"+(q+1)+"\n");
-                }
-                queens[q]=false;
             }
         }
-
-        //no choice
+        //no
         if(col<N-1){
-            permuteQueens(qpsf, row, col+1, queens, N, asf+"-\t");
-        }
-        else{
-            permuteQueens(qpsf, row+1, 0, queens, N, asf+"-\n");
+            permuteQueens(row, col+1, selectedSoFar, queens, N, ansSoFar+"-\t");
+        }else{
+            permuteQueens(row+1, 0, selectedSoFar, queens, N, ansSoFar+"-\n");
         }
     }
-
     public static void main(String[] args) {
         int N = 2;
         boolean[] queens = new boolean[2];

@@ -9,36 +9,31 @@
  */
 
 public class Permutation2 {
-    public static void perumte(int cb,int tb,int[] items, int ts, int ssf, String asf) {
-        
-        //base case
-        if(cb>tb){
-            if(ssf==ts){
-                System.out.println(asf);
-            }
 
+    public static void permute(int totalBoxes,int[] items, int totalItems, int currentBox, int selectedSoFar, String ansSoFar){
+        if(currentBox>totalBoxes){
+            if(selectedSoFar==totalItems){
+                System.out.println(ansSoFar);
+            }
             return;
         }
-
-        //every box has a choice for each item
-        //yes no
         //yes
         for(int i=0;i<items.length;i++){
             if(items[i]==0){
                 items[i]=1;
-                perumte(cb+1, tb, items, ts, ssf+1, asf+(i+1));
+                permute(totalBoxes, items, totalItems, currentBox+1, selectedSoFar+1, ansSoFar+(i+1));
                 items[i]=0;
             }
         }
 
-        //no choice
-        perumte(cb+1, tb, items, ts, ssf, asf+"0");
-        
+        //no
+        permute(totalBoxes, items, totalItems, currentBox+1, selectedSoFar, ansSoFar+0);
     }
     public static void main(String[] args) {
-        int n=4;
+        int n=5;
         int k=3;
         int[] items=new int[k];
-        perumte(0,n,items,k,0,"");
+
+        permute(n,items,k,1,0,"");
     }
 }
