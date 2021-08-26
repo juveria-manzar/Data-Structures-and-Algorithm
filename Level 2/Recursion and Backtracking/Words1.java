@@ -22,7 +22,7 @@ public class Words1 {
             if (fmap.get(ch) > 0) {
                 fmap.put(ch, fmap.get(ch) - 1);
                 permutations(N, fmap, currentSpot + 1, asf + ch);
-                fmap.put(ch, fmap.get(ch) + 1);
+                fmap.put(ch, fmap.get(ch) + 1);// backtracking
             }
         }
     }
@@ -39,6 +39,7 @@ public class Words1 {
                 frequencyMap.put(ch, 1);
             }
         }
+        // permutation(noOfSlots,Fmap,currSlot,ansSoFar)
         permutations(str.length(), frequencyMap, 1, "");
     }
 }

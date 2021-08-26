@@ -1,45 +1,37 @@
-import java.io.*;
 import java.util.*;
 
 public class Word2 {
-
-  public static void generateWords(int cc, String str, Character[] spots, 
-                                   HashMap<Character, Integer> lastOccurence) {
-    
-    if(cc == str.length()){
-        for(int i=0;i<spots.length;i++){
-            System.out.print(spots[i]);
+    static HashMap<Character, Integer> lastOccurence = new HashMap<>();
+    public static void permute(int currChar, String str, Character[] spots) {
+        if (currChar == str.length()) {
+            for (int i = 0; i < spots.length; i++) {
+                System.out.print(spots[i]);
+            }
+            System.out.println();
+            return;
         }
-        System.out.println();
-        return;
-    }
-    
-    char ch=str.charAt(cc);
-    int lo=lastOccurence.get(ch);
-    
-    for(int i=lo+1;i<spots.length;i++){
-        if(spots[i]==null){
-            spots[i]=ch;
-            lastOccurence.put(ch,i);
-            generateWords(cc+1,str,spots,lastOccurence);
-            lastOccurence.put(ch,-1);
-            spots[i]=null;
+        Character ch = str.charAt(currChar);
+        int lo = lastOccurence.get(ch);
+        for (int i = lo + 1; i < spots.length; i++) {
+            if (spots[i] == null) {
+                spots[i] = ch;
+                lastOccurence.put(ch, i);
+                permute(currChar + 1, str, spots);
+                lastOccurence.put(ch, lo);//backtracking step
+                spots[i] = null;//backtracking step
+            }
         }
     }
-    
-  }
 
-  public static void main(String[] args) throws Exception {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    String str = br.readLine();
+    public static void main(String[] args) {
+        String str = "aab";
 
-    Character[] spots = new Character[str.length()];
-    HashMap<Character, Integer> lastOccurence = new HashMap<>();
-    for(char ch: str.toCharArray()){
-      lastOccurence.put(ch, -1);
+        Character[] spots = new Character[str.length()];
+
+        for (int i = 0; i < str.length(); i++) {
+            lastOccurence.put(str.charAt(i), -1);
+        }
+        permute(0, str, spots);
     }
-
-    generateWords(0, str, spots, lastOccurence);
-  }
 
 }
