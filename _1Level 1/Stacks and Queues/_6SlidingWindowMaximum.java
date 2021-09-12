@@ -9,7 +9,7 @@
 import java.io.*;
 import java.util.*;
 
-public class SlidingWindowMaximum {
+public class _6SlidingWindowMaximum {
 
     public static void main(String[] args) throws Exception {
         Scanner scn=new Scanner(System.in);

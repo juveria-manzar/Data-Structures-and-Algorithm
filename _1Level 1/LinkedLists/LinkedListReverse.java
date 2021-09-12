@@ -77,21 +77,20 @@ public class LinkedListReverse {
 
         // Best approach ReversePointer Iterative
         public void reversePointerIterative() {
-            Node prev = null;
-            Node curr = head;
+            Node prev=null;
+            Node curr=head;
 
-            while (curr != null) {
-                Node nextNode = curr.next;
+            while(curr!=null){
+                Node next=curr.next;
 
-                curr.next = prev;
-
-                prev = curr;
-                curr = nextNode;
+                curr.next=prev;
+                prev=curr;
+                curr=next;
             }
+            Node temp=head;
+            head=prev;
+            tail=temp;
 
-            Node temp = head;
-            head = tail;
-            tail = temp;
         }
 
         public void reverseDataRecursive() {

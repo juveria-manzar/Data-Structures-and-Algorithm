@@ -6,7 +6,7 @@
  * @desc [description]
  */
 import java.util.*;
-public class RedundantBraces {
+public class _1RedundantBraces {
     public int braces(String A) {
         Stack<Character> st = new Stack<>();
         for (char c : A.toCharArray()) {
@@ -17,14 +17,16 @@ public class RedundantBraces {
                     st.pop();
                     popCount++;
                 }
-                st.pop();//popping the corresponding opening brace
+                st.pop();
+                //popping the corresponding opening brace
                 
-                //if only single element poped that is single element in between the braces, the v=braces are redundant
+                //if only single element poped that is single element in between the braces, 
+                //the braces are redundant
                 //or if no element has been popped between the braces
                 if(popCount==1||popCount==0){
                     return 1;
                 }
-            }else if(c==')'){
+            }else if(c=='('){
                 st.push(c);
             }
             else if(c!=' '){

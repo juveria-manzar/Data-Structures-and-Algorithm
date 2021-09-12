@@ -10,7 +10,7 @@
 import java.io.*;
 import java.util.*;
 
-public class StockSpan {
+public class _4StockSpan {
     public static void display(int[] a) {
         StringBuilder sb = new StringBuilder();
 

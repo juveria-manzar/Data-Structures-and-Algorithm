@@ -6,7 +6,7 @@
 
 import java.util.*;
 
-public class InfixEvaluation {
+public class _8InfixEvaluation {
 
     public static int evaluateExpression(String exp){
         Stack<Integer> operand=new Stack<>();

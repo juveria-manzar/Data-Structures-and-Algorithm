@@ -38,12 +38,6 @@ public class FoldList {
                 // do nothing
             }
         }
-
-
-        //PRACTICALLY Good
-        public void fold1(){
-
-        }
     }
 
     public static void main(String[] args) {

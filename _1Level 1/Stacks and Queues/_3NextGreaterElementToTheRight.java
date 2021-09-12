@@ -10,7 +10,7 @@
 import java.io.*;
 import java.util.*;
 
-public class NextGreaterElementToTheRight{
+public class _3NextGreaterElementToTheRight{
   public static void display(int[] a){
     StringBuilder sb = new StringBuilder();
 
