@@ -3,7 +3,7 @@
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class SizeAndHeight {
+class Main {
 
     public static class Node {
         int data;

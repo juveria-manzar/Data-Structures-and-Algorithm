@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+public class Main {
     public static Scanner scn = new Scanner(System.in);
 
     public static class TreeNode {
@@ -14,59 +14,48 @@ class Main {
     }
     
     public static class Pair{
-        
         TreeNode node;
-        int vln;
+        int d;
         
         Pair(){}
         
-        Pair(TreeNode node, int vln){
+        Pair(TreeNode node, int d){
             this.node=node;
-            this.vln=vln;
+            this.d=d;
         }
     }
-    
 
-    public static ArrayList<ArrayList<Integer>> verticalOrderTraversal(TreeNode node) {
-        min=Integer.MAX_VALUE;
-        max=Integer.MIN_VALUE;
-        width(node,0);
-        int rvl=-min;//root vertical line number
-        int width=max-min+1;
-        ArrayList<ArrayList<Integer>> ans=new ArrayList<>();
-        for(int i=0;i<width;i++){
-            ans.add(new ArrayList<>());
-        }
+    public static ArrayList<ArrayList<Integer>> diagonalOrder(TreeNode root) {
+        
+        ArrayList<ArrayList<Integer>> ans =new ArrayList<>();
         ArrayDeque<Pair> q=new ArrayDeque<>();
-        q.add(new Pair(node,rvl));
+        q.add(new Pair(root,0));
+        
+        
         while(q.size()>0){
-            //remove
             Pair rem=q.remove();
-            //work
-            ans.get(rem.vln).add(rem.node.val);
-            //add children
-            if(rem.node.left!=null){
-                q.add(new Pair(rem.node.left,rem.vln-1));
+            TreeNode node=rem.node;
+            int d=rem.d;
+            
+            if(d==ans.size()){
+                ArrayList<Integer> list=new ArrayList<>();
+                list.add(node.val);
+                ans.add(list);
+            }else{
+                ans.get(d).add(node.val);
             }
-            if(rem.node.right!=null){
-                q.add(new Pair(rem.node.right,rem.vln+1));
+            
+            if(node.left!=null){
+                q.add(new Pair(node.left,d));
+            }
+            
+            if(node.right!=null){
+                q.add(new Pair(node.right,d+1));
             }
         }
         return ans;
     }
-    static int min;
-    static int max;
-    public static void width(TreeNode node, int vl){
-        
-        if(node==null){
-            return;
-        }
-       min=Math.min(min,vl);
-       max=Math.max(max,vl);
-       
-       width(node.left,vl-1);
-       width(node.right,vl+1);
-    }
+
     // input_section=================================================
 
     public static TreeNode createTree(int[] arr, int[] IDX) {
@@ -90,7 +79,7 @@ class Main {
         int[] IDX = new int[1];
         TreeNode root = createTree(arr, IDX);
 
-        ArrayList<ArrayList<Integer>> ans = verticalOrderTraversal(root);
+        ArrayList<ArrayList<Integer>> ans = diagonalOrder(root);
         int idx = 0;
         for (ArrayList<Integer> i : ans) {
             System.out.print(idx++ + " -> ");
