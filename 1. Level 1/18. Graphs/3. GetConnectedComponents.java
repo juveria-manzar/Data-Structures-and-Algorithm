@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class GetConnectedComponents {
+class GetConnectedComponents {
     public static class Edge {
         int u;
         int v;

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class HasPath {
+class HasPath {
 
     public static class Edge {
         int u;
@@ -17,6 +17,13 @@ public class HasPath {
         }
     }
 
+    public static void addEdge(int u, int v, int wt, ArrayList<Edge>[] graph) {
+        Edge e1 = new Edge(u, v, wt);
+        Edge e2 = new Edge(v, u, wt);
+
+        graph[u].add(e1);
+        graph[v].add(e2);
+    }
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
 
@@ -44,22 +51,18 @@ public class HasPath {
         boolean pathExists = hasPath(src, dest, graph, visited);
         System.out.println(pathExists);
     }
-
-    public static void addEdge(int u, int v, int wt, ArrayList<Edge>[] graph) {
-        Edge e1 = new Edge(u, v, wt);
-        Edge e2 = new Edge(v, u, wt);
-
-        graph[u].add(e1);
-        graph[v].add(e2);
-    }
-
+    
     public static boolean hasPath(int src, int dest, ArrayList<Edge>[] graph, boolean[] visited) {
+        
+        //self check
         if (src == dest) {
             return true;
         }
 
+        //mark
         visited[src] = true;
 
+        //go to unvisited neighbours
         for (Edge ne : graph[src]) {
             int nbr = ne.v;
 

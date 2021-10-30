@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class UndirectedGraph {
+class UndirectedGraph {
 
     public static class Edge {
         int src;
