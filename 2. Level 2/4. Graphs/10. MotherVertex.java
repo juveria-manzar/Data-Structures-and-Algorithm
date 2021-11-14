@@ -14,8 +14,7 @@ class Solution {
                 dfs(adj, i, vis, st);
             }
         }
-
-
+        
         //2. is pmv is actually a mother vertex or not
         int pmv = st.peek();
         vis = new boolean[v];
