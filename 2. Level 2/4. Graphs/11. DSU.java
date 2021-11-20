@@ -15,6 +15,7 @@ class DSU {
 
         for (int i = 0; i <= n; i++) {
             par[i] = i;
+            ranks[i] = 1;
         }
 
         for (int i = 0; i < relations.length; i++) {
