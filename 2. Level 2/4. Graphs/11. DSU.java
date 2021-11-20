@@ -1,6 +1,7 @@
 class DSU {
 
     static int[] par;
+    static int[] ranks;
 
     public static void main(String[] args) {
 
@@ -10,6 +11,8 @@ class DSU {
         int n = 11;
 
         par = new int[n + 1];
+        ranks = new int[n + 1];
+
         for (int i = 0; i <= n; i++) {
             par[i] = i;
         }
@@ -35,6 +38,17 @@ class DSU {
         int lx = find(x);
         int ly = find(y);
 
+        // merging possible or not
+        if (lx != ly) {
+            if (ranks[lx] < ranks[ly]) {
+                par[lx] = ly;
+            } else if (ranks[ly] < ranks[lx]) {
+                par[ly] = lx;
+            } else {
+                par[lx] = ly;
+                ranks[ly]++;
+            }
+        }
         par[lx] = ly;
     }
 
@@ -42,8 +56,9 @@ class DSU {
         if (par[ele] == ele) {
             return ele;
         } else {
-
-            return find(par[ele]);
+            int ans = find(par[ele]);
+            par[ele] = ans; // path compression step
+            return ans;
         }
     }
 }
