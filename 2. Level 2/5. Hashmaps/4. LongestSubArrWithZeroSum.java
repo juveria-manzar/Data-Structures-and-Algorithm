@@ -5,6 +5,7 @@ class Main {
 	public static int solution(int[] arr) {
 		int length=0;
 		
+        //prefixsum vs its first occurenct index 
 		HashMap<Integer, Integer> map=new HashMap<>();
 		
 		map.put(0,-1);
