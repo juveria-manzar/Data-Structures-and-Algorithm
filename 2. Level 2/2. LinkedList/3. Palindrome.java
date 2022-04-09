@@ -1,19 +1,6 @@
 import java.util.Scanner;
 
-public class _3Palindrome {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
-
+class Main {
     public static ListNode midOfLL(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
@@ -66,21 +53,5 @@ public class _3Palindrome {
         mid.next = newHead;
 
         return true;
-    }
-
-    public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-
-        ListNode dummy = new ListNode(-1);
-        ListNode prev = dummy;
-
-        while (n > 0) {
-            prev.next = new ListNode(scn.nextInt());
-            prev = prev.next;
-            n--;
-        }
-
-        System.out.println(isPalindrome(dummy.next));
     }
 }
