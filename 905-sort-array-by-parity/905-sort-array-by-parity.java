@@ -1,24 +1,15 @@
-// TC : O(n) - 1 pass
-// SC : O(1)
-// 2 - pointer approach with 1 pass
-
 class Solution {
     public int[] sortArrayByParity(int[] nums) {
-        int l = nums.length;
-        
-        int i = -1;
-        int j = 0;
-        
-        while (j < l) {
-            if (nums[j]%2 == 0) {
-                i += 1;
-                int tmp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = tmp;
+        int i=0,j=nums.length-1;
+        while(i<j){
+            if(nums[i]%2 > nums[j]%2){
+                int temp=nums[i];
+                nums[i]=nums[j];
+                nums[j]=temp;
             }
-            j += 1;
+            if(nums[i]%2==0) i++;
+            if(nums[j]%2==1) j--; 
         }
-        
         return nums;
     }
 }
