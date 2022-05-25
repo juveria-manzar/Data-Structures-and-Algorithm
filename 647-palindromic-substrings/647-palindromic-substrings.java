@@ -1,8 +1,7 @@
 
-// @saorav21994
 // TC : O(n^2)
 // SC : O(1)
-// Pretty standard algorithm, for each character extend to both side till it remains equal. Do it for each character twice - for even and odd length.
+// For each character extend to both side till it remains equal. Do it for each character twice - for even and odd length.
 
 class Solution {
     
