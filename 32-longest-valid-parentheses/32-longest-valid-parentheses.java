@@ -1,10 +1,7 @@
 
-// @saorav21994
 // TC : O(2*n) = O(n)
 // SC : O(n)
 
-// This is my version of stack. For more optimized version of stack (absolute O(n), mine's 2*n) can check official solution. 
-// This is what I came up with during an interview.
 
 // Treat ( as -1 and ) as -2. The idea is whenever we encounter a ) above ( we count +2 and keep in stack. Each time we add up all the values and keep max of them.
 
