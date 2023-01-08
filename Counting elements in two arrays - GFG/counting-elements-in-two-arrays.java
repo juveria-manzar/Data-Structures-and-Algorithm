@@ -39,17 +39,18 @@ class Solution
     private static int findCeilIndex(int n, int[] arr){
         int lo = 0;
         int hi = arr.length-1;
-        
+        int idx=-1;
         while(lo<=hi){
             int mid = lo + (hi-lo)/2;
             if(arr[mid]>n){
                 hi = mid-1;
+                idx=mid;
             }else{
                 lo = mid+1;
             }
         }
         
-        return lo;
+        return idx;
         
     }
     public static ArrayList<Integer> countEleLessThanOrEqual(int arr1[], int arr2[], int m, int n)
@@ -58,6 +59,7 @@ class Solution
        Arrays.sort(arr2);
        for(int num: arr1){
            int i = findCeilIndex(num, arr2);
+           i = i==-1? arr2.length: i;
            list.add(i);
        }
        
